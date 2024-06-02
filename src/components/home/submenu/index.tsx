@@ -37,7 +37,7 @@ const Submenu = () => {
         <ul className={`${styles.ul} ${isOpen ? styles.open : ""}`}>
           {isOpen && (
             <button className={styles.closeButton} onClick={toggleMenu}>
-              <X size={44} />
+              <X className={styles.icon}/>
             </button>
           )}
           <li>
