@@ -3,11 +3,10 @@ import getDataHome from "@/utils/actions/get-data"
 import { HomeProps } from "@/utils/home.type"
 import Hero from "@/components/hero"
 import { MessageCircleMore } from "lucide-react"
+import Services from "@/components/home/services"
 
 export const Home = async () => {
   const { object }: HomeProps = await getDataHome()
-
-  console.log(object.slug)
 
   return (
     <main>
@@ -19,6 +18,8 @@ export const Home = async () => {
         bannerUrl={object.metadata.banner.url}
         icon={<MessageCircleMore size={24} />}
       />
+
+      <Services object={object}/>
     </main>
   )
 }

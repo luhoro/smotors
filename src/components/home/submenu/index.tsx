@@ -4,6 +4,7 @@ import styles from "./styles.module.scss"
 import Link from "next/link"
 
 import { X, Menu } from "lucide-react"
+import Container from "@/components/container"
 
 const Submenu = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -28,7 +29,7 @@ const Submenu = () => {
 
   return (
     <section className={styles.submenu}>
-      <div className="container">
+      <Container>
         <button className={styles.submenuIcon} onClick={toggleMenu}>
           <Menu size={28} />
           <p>Serviços</p>
@@ -37,7 +38,7 @@ const Submenu = () => {
         <ul className={`${styles.ul} ${isOpen ? styles.open : ""}`}>
           {isOpen && (
             <button className={styles.closeButton} onClick={toggleMenu}>
-              <X className={styles.icon}/>
+              <X className={styles.icon} />
             </button>
           )}
           <li>
@@ -52,7 +53,7 @@ const Submenu = () => {
             <Link href="/-">-</Link>
           </li>
         </ul>
-      </div>
+      </Container>
     </section>
   )
 }
