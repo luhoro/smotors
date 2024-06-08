@@ -6,6 +6,10 @@
   list-style: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 button {
   background-color: transparent;
   cursor: pointer;

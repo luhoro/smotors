@@ -4,6 +4,8 @@ import { HomeProps } from "@/utils/home.type"
 import Hero from "@/components/hero"
 import { MessageCircleMore } from "lucide-react"
 import Services from "@/components/home/services"
+import Footer from "@/components/home/footer"
+
 
 export const Home = async () => {
   const { object }: HomeProps = await getDataHome()
@@ -19,7 +21,8 @@ export const Home = async () => {
         icon={<MessageCircleMore size={24} />}
       />
 
-      <Services object={object}/>
+      <Services object={object} />
+      <Footer object={object} />
     </main>
   )
 }

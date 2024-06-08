@@ -29,11 +29,11 @@ const Header = () => {
           </div>
 
           <nav className={styles.nav}>
-            <Link href="/">Home</Link>
+            <Link href="#home">Home</Link>
 
-            <Link href="/#servicos">Serviços</Link>
+            <Link href="#servicos">Serviços</Link>
 
-            <Link href="/#contatos">Contatos</Link>
+            <Link href="#contatos">Contatos</Link>
           </nav>
         </div>
       </Container>

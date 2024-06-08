@@ -9,7 +9,7 @@ const Services = ({ object }: HomeProps) => {
   return (
     <>
       <Container>
-        <section className={styles.containerAbout}>
+        <section className={styles.containerAbout} id="servicos">
           <article className={styles.innerAbout}>
             <h2>Sobre</h2>
             <p>{object.metadata.about.description}</p>
@@ -30,7 +30,7 @@ const Services = ({ object }: HomeProps) => {
       <div className={styles.backgroundServices}>
         <Container>
           <h2 className={styles.servicesTitle}>Conheça nossos serviços</h2>
-          
+
           <section className={styles.services}>
             {object.metadata.services.map((service, index) => (
               <div className={styles.service}>

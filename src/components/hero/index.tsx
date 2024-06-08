@@ -19,7 +19,7 @@ const Hero = ({
   icon,
 }: HeroProps) => {
   return (
-    <main className={styles.main}>
+    <main className={styles.main} id="home">
       <div className={styles.containerHero}>
         <h1 className={styles.title}>{heading}</h1>
         <Link href={buttonUrl} target="_blank" className={styles.link}>
