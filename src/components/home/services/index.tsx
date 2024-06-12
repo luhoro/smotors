@@ -18,10 +18,11 @@ const Services = ({ object }: HomeProps) => {
           <div className={styles.bannerAbout}>
             <Image
               className={styles.imageAbout}
+              src={object.metadata.about.banner.url}
               alt="Imagem ilustrativa sobre a empresa"
               quality={100}
+              sizes="100%"
               fill
-              src={object.metadata.about.banner.url}
             />
           </div>
         </section>
@@ -36,11 +37,12 @@ const Services = ({ object }: HomeProps) => {
               <div className={styles.service}>
                 <div key={index} className={styles.innerService}>
                   <Image
+                    src={service.image.url}
                     className={styles.imageService}
                     alt="Imagem do serviço"
                     quality={100}
+                    sizes="100%"
                     fill
-                    src={service.image.url}
                   />
                 </div>
                 <p>{service.description}</p>

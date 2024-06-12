@@ -5,8 +5,9 @@ import Link from "next/link"
 
 import { X, Menu } from "lucide-react"
 import Container from "@/components/container"
+import { MenuProps } from "@/utils/menu.type"
 
-const Submenu = () => {
+const Submenu = ({ menu }: { menu: MenuProps }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -41,17 +42,12 @@ const Submenu = () => {
               <X className={styles.icon} />
             </button>
           )}
-          <li>
-            <Link href="/-">-</Link>
-          </li>
 
-          <li>
-            <Link href="/-">-</Link>
-          </li>
-
-          <li>
-            <Link href="/-">-</Link>
-          </li>
+          {menu.objects.map((item, index) => (
+            <li key={index}>
+              <Link href={`/post/${item.slug}`}>{item.title}</Link>
+            </li>
+          ))}
         </ul>
       </Container>
     </section>
