@@ -4,11 +4,11 @@ import Container from "@/components/container"
 import { Mail, Map, Phone, Clock, MessageCircleMore } from "lucide-react"
 import Link from "next/link"
 
-const Footer = ({ object }: HomeProps) => {
+const Contacts = ({ object }: HomeProps) => {
   return (
-    <footer className={styles.footer} id="contatos">
+    <section className={styles.footer} id="contatos">
       <Container>
-        <section className={styles.section}>
+        <div className={styles.section}>
           <h2 className={styles.title}>Contatos</h2>
 
           <div className={styles.content}>
@@ -44,7 +44,7 @@ const Footer = ({ object }: HomeProps) => {
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
         <Link
           href={object.metadata.cta_button.url}
@@ -55,13 +55,9 @@ const Footer = ({ object }: HomeProps) => {
           <MessageCircleMore size={24} />
         </Link>
 
-        <p className={styles.copyText}>
-          Todos os direitos reservados {object.title} @
-          {`${new Date().getFullYear()}`}
-        </p>
       </Container>
-    </footer>
+    </section>
   )
 }
 
-export default Footer
+export default Contacts

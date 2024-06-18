@@ -5,7 +5,8 @@ import { MenuProps } from "@/utils/menu.type"
 import Hero from "@/components/hero"
 import { MessageCircleMore } from "lucide-react"
 import Services from "@/components/home/services"
-import Footer from "@/components/home/footer"
+import Footer from "@/components/footer"
+import Contacts from "@/components/home/contacts"
 
 export const Home = async () => {
   const { object }: HomeProps = await getDataHome()
@@ -24,7 +25,7 @@ export const Home = async () => {
       />
 
       <Services object={object} />
-      <Footer object={object} />
+      <Contacts object={object}/>
     </main>
   )
 }
