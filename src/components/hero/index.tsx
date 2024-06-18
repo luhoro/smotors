@@ -35,6 +35,7 @@ const Hero = ({
           src={bannerUrl}
           priority
           quality={100}
+          sizes="(max-width: 480px) 100vw, (max-width: 1024px) 75vw, 60vw"
           fill
         />
       </div>

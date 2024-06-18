@@ -33,6 +33,15 @@
   .nav {
     display: flex;
     gap: 12px;
+
+    a {
+      padding: 6px 0;
+
+      &:hover {
+        color: #444444;
+        text-decoration: underline;
+      }
+    }
   }
 }
 
