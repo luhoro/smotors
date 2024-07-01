@@ -6,13 +6,51 @@ import { MessageCircleMore } from "lucide-react"
 import Container from "@/components/container"
 import Link from "next/link"
 import Image from "next/image"
+import { Metadata } from "next"
+
+export const generateMetadata = async ({
+  params: { slug },
+}: {
+  params: { slug: string }
+}): Promise<Metadata> => {
+  try {
+    const { objects }: PostProps = await getItemBySlug(slug).catch(() => ({
+      title: "S Motors - Sua oficina especializada",
+      description: "Oficina de carros em Minas Gerais",
+    }))
+
+    return {
+      title: `S Motors - ${objects[0].title}`,
+      description: `${objects[0].metadata.description.text}`,
+      openGraph: {
+        title: `S Motors - ${objects[0].title}`,
+        images: [objects[0].metadata.banner.url],
+      },
+      robots: {
+        index: true,
+        follow: true,
+        nocache: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          noimageindex: true,
+        },
+      },
+    }
+  } catch (error) {
+    return {
+      title: "S Motors - Sua oficina especializada",
+      description: "Oficina de carros em Minas Gerais",
+    }
+  }
+}
 
 const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
   const { objects }: PostProps = await getItemBySlug(slug)
 
   return (
     <>
-      <div className={styles.beforeHero}/>
+      <div className={styles.beforeHero} />
       <Hero
         heading={objects[0].title}
         buttonTitle={objects[0].metadata.button.title}
@@ -24,7 +62,9 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
       <Container>
         <section className={styles.about} id="servicos">
           <article className={styles.innerAbout}>
-            <h1 className={styles.title}>{objects[0].metadata.description.title}</h1>
+            <h1 className={styles.title}>
+              {objects[0].metadata.description.title}
+            </h1>
 
             <p>{objects[0].metadata.description.text}</p>
 
@@ -40,7 +80,7 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
           </article>
 
           <div className={styles.bannerAbout}>
-            <Image 
+            <Image
               className={styles.imageAbout}
               alt={objects[0].title}
               quality={100}

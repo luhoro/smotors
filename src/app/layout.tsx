@@ -7,8 +7,30 @@ import Footer from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "CS Motors - Sua oficina especializada",
+  title: "S Motors - Sua oficina especializada",
   description: "Oficina de carros em Minas Gerais",
+  keywords: [
+    "oficina",
+    "carros",
+    "oficina carros",
+    "manutenção carros",
+    "mecânico",
+    "conserto carros",
+  ],
+  openGraph: {
+    title: "S Motors - Sua oficina especializada",
+    images: [`${process.env.NEXT_PUBLIC_URL}/preview.jpg`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+    },
+  },
 }
 
 export default function RootLayout({
@@ -21,7 +43,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   )
